@@ -21,11 +21,8 @@
 
       //-------testing if the button works---//
       solving.addEventListener("click", handleClick);
-
       function handleClick() {
         console.log("Button has been clicked!");
-
-        //------------------------------------------
 
         let num1V = parseFloat(num1PUT.value);
         let num2V = parseFloat(num2PUT.value);
@@ -33,11 +30,11 @@
         let errorsArray = validateUserInput(num1V, num2V, solveValue);
         let result = calcNum(num1V, num2V, solveValue);
 
-        output.innerHTML(result);
+        output.innerHTML("the answer is: " + result);
       }
       //-------------------------------------------
-      function calcNum() {
-        switch (oper) {
+      function calcNum(num1V, num2V, solveValue) {
+        switch (solveValue) {
           case "+":
             return num1V + num2V;
 
@@ -56,6 +53,16 @@
       }
 
       //-------------------------------------------------
+
+      errorsArray = [];
+      function validateUserInput(num1V, num2V, oper) {
+        if (isNaN(num1V)) {
+          push(output.innerHTML("Kļudains pirmais skaitlis!"));
+        }
+        if (isNaN(num2V)) {
+          push(output.innerHTML("Kļudains otrais skaitlis!"));
+        }
+      }
     </script>
   </body>
 </html>
