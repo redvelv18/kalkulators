@@ -25,16 +25,18 @@
       function handleClick() {
         console.log("Button has been clicked!");
 
-        //----------
+        //------------------------------------------
 
         let num1V = parseFloat(num1PUT.value);
         let num2V = parseFloat(num2PUT.value);
         let solveValue = oper.value;
         let errorsArray = validateUserInput(num1V, num2V, solveValue);
-        let result = calculate(num1V, num2V, solveValue);
+        let result = calcNum(num1V, num2V, solveValue);
 
-        //-------------
-
+        output.innerHTML(result);
+      }
+      //-------------------------------------------
+      function calcNum() {
         switch (oper) {
           case "+":
             return num1V + num2V;
@@ -52,6 +54,8 @@
             output.innerHTML("There is an error");
         }
       }
+
+      //-------------------------------------------------
     </script>
   </body>
 </html>
