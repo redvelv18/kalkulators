@@ -19,7 +19,8 @@
       const solving = document.getElementById("solve");
       const output = document.getElementById("output");
 
-      //-------testing if the button works---//
+      //------------testing if the button works-------------//
+
       solving.addEventListener("click", handleClick);
       function handleClick() {
         console.log("Button has been clicked!");
@@ -30,9 +31,14 @@
         let errorsArray = validateUserInput(num1V, num2V, solveValue);
         let result = calcNum(num1V, num2V, solveValue);
 
-        output.innerHTML("the answer is: " + result);
+        output.innerHTML = "the answer is: " + result;
+
+        if (errorsArray < 0) {
+        }
       }
-      //-------------------------------------------
+
+      //------------------calculations---------------------//
+
       function calcNum(num1V, num2V, solveValue) {
         switch (solveValue) {
           case "+":
@@ -52,17 +58,20 @@
         }
       }
 
-      //-------------------------------------------------
+      //-------------------errors------------------------------//
 
       errorsArray = [];
-      function validateUserInput(num1V, num2V, oper) {
+      function validateUserInput(num1V, num2V, solveValue) {
         if (isNaN(num1V)) {
-          push(output.innerHTML("Kļudains pirmais skaitlis!"));
+          errorsArray.push("Kļudains pirmais skaitlis!");
         }
         if (isNaN(num2V)) {
-          push(output.innerHTML("Kļudains otrais skaitlis!"));
+          errorsArray.push("Kļudains otrais skaitlis!");
         }
+        return errorsArray;
       }
+
+      //------------------------------------------------------//
     </script>
   </body>
 </html>
