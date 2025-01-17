@@ -17,12 +17,40 @@
       const oper = document.getElementById("operator");
       const num2PUT = document.getElementById("num2");
       const solving = document.getElementById("solve");
-      const PUT = document.getElementById("output");
+      const output = document.getElementById("output");
 
       //-------testing if the button works---//
       solving.addEventListener("click", handleClick);
+
       function handleClick() {
         console.log("Button has been clicked!");
+
+        //----------
+
+        let num1V = parseFloat(num1PUT.value);
+        let num2V = parseFloat(num2PUT.value);
+        let solveValue = oper.value;
+        let errorsArray = validateUserInput(num1V, num2V, solveValue);
+        let result = calculate(num1V, num2V, solveValue);
+
+        //-------------
+
+        switch (oper) {
+          case "+":
+            return num1V + num2V;
+
+          case "-":
+            return num1V - num2V;
+
+          case "*":
+            return num1V * num2V;
+
+          case "/":
+            return num1V / num2V;
+
+          default:
+            output.innerHTML("There is an error");
+        }
       }
     </script>
   </body>
